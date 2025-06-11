@@ -1,0 +1,9 @@
+*.exe
+*.o
+*.obj
+*.dll
+.code
+.vscode
+*.log
+*.tmp
+*.cache
