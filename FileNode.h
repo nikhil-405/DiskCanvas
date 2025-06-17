@@ -8,12 +8,21 @@ using namespace std;
 struct FileNode {
     string name;
     uint64_t size = 0;
-    string fileType = "";
     bool isDirectory = false;
-    vector<unique_ptr<FileNode>> children;
+    string fileType;
 
-    FileNode(string name_, string fileType_, bool isDir)
-      : name(move(name_)), fileType(move(fileType_)), isDirectory(isDir) {}
+    FileNode* firstChild = nullptr;
+    FileNode* nextSibling= nullptr;
 
+    // constructor
+    FileNode(string n, string ft, bool isDir)
+      : name(move(n)), 
+        fileType(move(ft)),
+        isDirectory(isDir) {}
+    
+    // destructor
+    ~FileNode();
+
+    // size function
     void accumulateSize();
 };
